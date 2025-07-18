@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Glassmorphism Color Palette */
+  --primary-start: 258 70% 76%; /* #6B46C1 */
+  --primary-end: 213 94% 68%; /* #3B82F6 */
+  --accent-start: 43 96% 56%; /* #F59E0B */
+  --accent-end: 25 95% 53%; /* #D97706 */
+  --background-start: 222 84% 5%; /* #0F172A */
+  --background-end: 215 28% 17%; /* #1E293B */
+  --glass-bg: 0 0% 100%; /* rgba(255,255,255,0.1) */
+  --glass-border: 0 0% 100%; /* rgba(255,255,255,0.2) */
+  --text-primary: 210 40% 98%; /* #F8FAFC */
+  --text-secondary: 215 20% 65%; /* #94A3B8 */
+  --text-muted: 215 16% 47%; /* #64748B */
+}
+
+* {
+  border-color: hsl(var(--glass-border) / 10%);
+}
+
+body {
+  font-family: Inter, sans-serif;
+  background: linear-gradient(135deg, hsl(var(--background-start)), hsl(var(--background-end)));
+  min-height: 100vh;
+  color: hsl(var(--text-primary));
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  background: rgb(var(--glass-bg), 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgb(var(--glass-border), 0.2);
+}
+
+.glass-strong {
+  background: rgb(var(--glass-bg), 0.15);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgb(var(--glass-border), 0.3);
+}
+
+.glass-subtle {
+  background: rgb(var(--glass-bg), 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgb(var(--glass-border), 0.1);
+}
+
+/* Gradient Utilities */
+.gradient-primary {
+  background: linear-gradient(135deg, hsl(var(--primary-start)), hsl(var(--primary-end)));
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, hsl(var(--accent-start)), hsl(var(--accent-end)));
+}
+
+.gradient-text-primary {
+  background: linear-gradient(135deg, hsl(var(--primary-start)), hsl(var(--primary-end)));
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-accent {
+  background: linear-gradient(135deg, hsl(var(--accent-start)), hsl(var(--accent-end)));
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animation Utilities */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 20px rgb(var(--primary-start), 0.3); }
+  to { box-shadow: 0 0 30px rgb(var(--primary-end), 0.5); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--glass-bg), 0.05);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--glass-bg), 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--glass-bg), 0.3);
+}
+
+/* Hover Effects */
+.hover-glass {
+  transition: all 0.3s ease;
+}
+
+.hover-glass:hover {
+  background: rgb(var(--glass-bg), 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgb(0 0 0 / 20%);
+}
+
+/* Focus States */
+.focus-glass:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(var(--primary-start), 0.5);
+}
+
+/* Button Variants */
+.btn-glass {
+  background: rgb(var(--glass-bg), 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgb(var(--glass-border), 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-glass:hover {
+  background: rgb(var(--glass-bg), 0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgb(0 0 0 / 20%);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, hsl(var(--primary-start)), hsl(var(--primary-end)));
+  border: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 20px rgb(var(--primary-start), 0.4);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, hsl(var(--accent-start)), hsl(var(--accent-end)));
+  border: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-accent:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 20px rgb(var(--accent-start), 0.4);
+}
